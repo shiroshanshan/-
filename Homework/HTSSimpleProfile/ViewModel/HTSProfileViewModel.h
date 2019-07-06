@@ -2,12 +2,16 @@
 //  HTSProfileViewModel.h
 //  Homework
 //
-//  Created by ハン・エンショウ on 2019/07/05.
+//  Created by ハン・エンショウ on 2019/07/06.
 //  Copyright © 2019 fan. All rights reserved.
 //
 
-#ifndef HTSProfileViewModel_h
-#define HTSProfileViewModel_h
+#import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
 
-#endif /* HTSProfileViewModel_h */
+@interface HTSProfileViewModel : NSObject
+
+@end
+
+NS_ASSUME_NONNULL_END

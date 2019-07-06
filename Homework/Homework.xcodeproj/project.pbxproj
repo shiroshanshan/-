@@ -3,21 +3,38 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6001EC0722D0709000F74656 /* HTSProfileViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6001EC0622D0709000F74656 /* HTSProfileViewModel.m */; };
+		6001EC0A22D070A200F74656 /* HTSProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6001EC0922D070A200F74656 /* HTSProfileViewController.m */; };
+		6001EC0D22D070CA00F74656 /* HTSUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6001EC0C22D070CA00F74656 /* HTSUserModel.m */; };
+		6001EC1022D070DC00F74656 /* HTSVideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6001EC0F22D070DC00F74656 /* HTSVideoModel.m */; };
+		6001EC1722D1238700F74656 /* video.json in Resources */ = {isa = PBXBuildFile; fileRef = 6001EC1522D1238700F74656 /* video.json */; };
+		6001EC1822D1238700F74656 /* user.json in Resources */ = {isa = PBXBuildFile; fileRef = 6001EC1622D1238700F74656 /* user.json */; };
 		600BDBAC22CF0CE8008D80E7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 600BDBAB22CF0CE8008D80E7 /* AppDelegate.m */; };
 		600BDBAF22CF0CE8008D80E7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 600BDBAE22CF0CE8008D80E7 /* ViewController.m */; };
 		600BDBB222CF0CE8008D80E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 600BDBB022CF0CE8008D80E7 /* Main.storyboard */; };
 		600BDBB422CF0CEA008D80E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 600BDBB322CF0CEA008D80E7 /* Assets.xcassets */; };
 		600BDBB722CF0CEA008D80E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 600BDBB522CF0CEA008D80E7 /* LaunchScreen.storyboard */; };
 		600BDBBA22CF0CEA008D80E7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 600BDBB922CF0CEA008D80E7 /* main.m */; };
-		600BDBC522CF0D35008D80E7 /* HTSProfileViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 600BDBC422CF0D35008D80E7 /* HTSProfileViewModel.m */; };
-		600BDBC722CF0D74008D80E7 /* HTSProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 600BDBC622CF0D74008D80E7 /* HTSProfileViewController.m */; };
+		BF2F20BC0F27325401A68E45 /* Pods_Homework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A720FF794B1F1531FC9C5C6A /* Pods_Homework.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		015C819329344D02FC386D53 /* Pods-Homework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Homework.debug.xcconfig"; path = "Target Support Files/Pods-Homework/Pods-Homework.debug.xcconfig"; sourceTree = "<group>"; };
+		15B2856A090A3ED3B4087E75 /* Pods-Homework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Homework.release.xcconfig"; path = "Target Support Files/Pods-Homework/Pods-Homework.release.xcconfig"; sourceTree = "<group>"; };
+		6001EC0522D0709000F74656 /* HTSProfileViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTSProfileViewModel.h; sourceTree = "<group>"; };
+		6001EC0622D0709000F74656 /* HTSProfileViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTSProfileViewModel.m; sourceTree = "<group>"; };
+		6001EC0822D070A200F74656 /* HTSProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTSProfileViewController.h; sourceTree = "<group>"; };
+		6001EC0922D070A200F74656 /* HTSProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTSProfileViewController.m; sourceTree = "<group>"; };
+		6001EC0B22D070CA00F74656 /* HTSUserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTSUserModel.h; sourceTree = "<group>"; };
+		6001EC0C22D070CA00F74656 /* HTSUserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTSUserModel.m; sourceTree = "<group>"; };
+		6001EC0E22D070DC00F74656 /* HTSVideoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTSVideoModel.h; sourceTree = "<group>"; };
+		6001EC0F22D070DC00F74656 /* HTSVideoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTSVideoModel.m; sourceTree = "<group>"; };
+		6001EC1522D1238700F74656 /* video.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = video.json; sourceTree = "<group>"; };
+		6001EC1622D1238700F74656 /* user.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = user.json; sourceTree = "<group>"; };
 		600BDBA722CF0CE8008D80E7 /* Homework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homework.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		600BDBAA22CF0CE8008D80E7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		600BDBAB22CF0CE8008D80E7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -28,10 +45,7 @@
 		600BDBB622CF0CEA008D80E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		600BDBB822CF0CEA008D80E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		600BDBB922CF0CEA008D80E7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		600BDBC422CF0D35008D80E7 /* HTSProfileViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTSProfileViewModel.m; sourceTree = "<group>"; };
-		600BDBC622CF0D74008D80E7 /* HTSProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTSProfileViewController.m; sourceTree = "<group>"; };
-		600BDBC822CF0D8C008D80E7 /* HTSProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTSProfileViewController.h; sourceTree = "<group>"; };
-		600BDBC922CF0DA3008D80E7 /* HTSProfileViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTSProfileViewModel.h; sourceTree = "<group>"; };
+		A720FF794B1F1531FC9C5C6A /* Pods_Homework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Homework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF2F20BC0F27325401A68E45 /* Pods_Homework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +65,8 @@
 			children = (
 				600BDBA922CF0CE8008D80E7 /* HTSSimpleProfile */,
 				600BDBA822CF0CE8008D80E7 /* Products */,
+				DD8333D90C957C031D8A5481 /* Pods */,
+				AA09386AC64E746B1EC846AB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +81,8 @@
 		600BDBA922CF0CE8008D80E7 /* HTSSimpleProfile */ = {
 			isa = PBXGroup;
 			children = (
+				6001EC1622D1238700F74656 /* user.json */,
+				6001EC1522D1238700F74656 /* video.json */,
 				600BDBC322CF0D18008D80E7 /* ViewModel */,
 				600BDBC222CF0D0F008D80E7 /* ViewController */,
 				600BDBC122CF0CFB008D80E7 /* View */,
@@ -81,6 +100,10 @@
 		600BDBC022CF0CF6008D80E7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6001EC0B22D070CA00F74656 /* HTSUserModel.h */,
+				6001EC0C22D070CA00F74656 /* HTSUserModel.m */,
+				6001EC0E22D070DC00F74656 /* HTSVideoModel.h */,
+				6001EC0F22D070DC00F74656 /* HTSVideoModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -98,8 +121,8 @@
 		600BDBC222CF0D0F008D80E7 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				600BDBC822CF0D8C008D80E7 /* HTSProfileViewController.h */,
-				600BDBC622CF0D74008D80E7 /* HTSProfileViewController.m */,
+				6001EC0822D070A200F74656 /* HTSProfileViewController.h */,
+				6001EC0922D070A200F74656 /* HTSProfileViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -107,10 +130,27 @@
 		600BDBC322CF0D18008D80E7 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				600BDBC922CF0DA3008D80E7 /* HTSProfileViewModel.h */,
-				600BDBC422CF0D35008D80E7 /* HTSProfileViewModel.m */,
+				6001EC0522D0709000F74656 /* HTSProfileViewModel.h */,
+				6001EC0622D0709000F74656 /* HTSProfileViewModel.m */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		AA09386AC64E746B1EC846AB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A720FF794B1F1531FC9C5C6A /* Pods_Homework.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DD8333D90C957C031D8A5481 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				015C819329344D02FC386D53 /* Pods-Homework.debug.xcconfig */,
+				15B2856A090A3ED3B4087E75 /* Pods-Homework.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -120,9 +160,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 600BDBBD22CF0CEA008D80E7 /* Build configuration list for PBXNativeTarget "Homework" */;
 			buildPhases = (
+				8066DCD573BE55979823EDF6 /* [CP] Check Pods Manifest.lock */,
 				600BDBA322CF0CE8008D80E7 /* Sources */,
 				600BDBA422CF0CE8008D80E7 /* Frameworks */,
 				600BDBA522CF0CE8008D80E7 /* Resources */,
+				85715CBE3AFDBCD34A7E809A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -171,20 +213,66 @@
 			buildActionMask = 2147483647;
 			files = (
 				600BDBB722CF0CEA008D80E7 /* LaunchScreen.storyboard in Resources */,
+				6001EC1722D1238700F74656 /* video.json in Resources */,
 				600BDBB422CF0CEA008D80E7 /* Assets.xcassets in Resources */,
 				600BDBB222CF0CE8008D80E7 /* Main.storyboard in Resources */,
+				6001EC1822D1238700F74656 /* user.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8066DCD573BE55979823EDF6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Homework-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		85715CBE3AFDBCD34A7E809A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Homework/Pods-Homework-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Homework/Pods-Homework-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Homework/Pods-Homework-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		600BDBA322CF0CE8008D80E7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				600BDBC722CF0D74008D80E7 /* HTSProfileViewController.m in Sources */,
-				600BDBC522CF0D35008D80E7 /* HTSProfileViewModel.m in Sources */,
+				6001EC0D22D070CA00F74656 /* HTSUserModel.m in Sources */,
+				6001EC1022D070DC00F74656 /* HTSVideoModel.m in Sources */,
+				6001EC0722D0709000F74656 /* HTSProfileViewModel.m in Sources */,
+				6001EC0A22D070A200F74656 /* HTSProfileViewController.m in Sources */,
 				600BDBAF22CF0CE8008D80E7 /* ViewController.m in Sources */,
 				600BDBBA22CF0CEA008D80E7 /* main.m in Sources */,
 				600BDBAC22CF0CE8008D80E7 /* AppDelegate.m in Sources */,
@@ -327,11 +415,12 @@
 		};
 		600BDBBE22CF0CEA008D80E7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 015C819329344D02FC386D53 /* Pods-Homework.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9NUX4WT88T;
-				INFOPLIST_FILE = Homework/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/HTSSimpleProfile/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -344,11 +433,12 @@
 		};
 		600BDBBF22CF0CEA008D80E7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 15B2856A090A3ED3B4087E75 /* Pods-Homework.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9NUX4WT88T;
-				INFOPLIST_FILE = Homework/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/HTSSimpleProfile/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

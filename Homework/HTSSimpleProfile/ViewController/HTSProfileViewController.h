@@ -2,12 +2,16 @@
 //  HTSProfileViewController.h
 //  Homework
 //
-//  Created by ハン・エンショウ on 2019/07/05.
+//  Created by ハン・エンショウ on 2019/07/06.
 //  Copyright © 2019 fan. All rights reserved.
 //
 
-#ifndef HTSProfileViewController_h
-#define HTSProfileViewController_h
+#import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
 
-#endif /* HTSProfileViewController_h */
+@interface HTSProfileViewController : NSObject
+
+@end
+
+NS_ASSUME_NONNULL_END

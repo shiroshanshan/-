@@ -1,0 +1,18 @@
+{
+    "data": {
+        "avatar_jpg_uri": "avatar_jpg_uri",
+        "birthday_description": "90后",
+        "city": "北京",
+        "fan_ticket_count": 54,
+        "nickname": "你的昵称",
+        "pay_grade": {
+            "grade_banner": "火山达人",
+            "grade_icon_uri": "avatar_jpg_uri"
+        },
+        "signature": "在韩国定居十年 带你了解韩国风土人情。",
+        "stats": {
+            "following_count": 21,
+            "follower_count": 13
+        }
+    }
+}
