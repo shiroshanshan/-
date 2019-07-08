@@ -20,8 +20,8 @@
 		600BDBB422CF0CEA008D80E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 600BDBB322CF0CEA008D80E7 /* Assets.xcassets */; };
 		600BDBB722CF0CEA008D80E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 600BDBB522CF0CEA008D80E7 /* LaunchScreen.storyboard */; };
 		600BDBBA22CF0CEA008D80E7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 600BDBB922CF0CEA008D80E7 /* main.m */; };
-		60BBECFB22D3457100945031 /* HTSEditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BBECFA22D3457100945031 /* HTSEditProfileViewController.m */; };
-		60BBECFE22D346C400945031 /* HTSMainNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BBECFD22D346C400945031 /* HTSMainNavigationController.m */; };
+		60BBED0322D361AF00945031 /* HTSMainNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BBECFF22D361AF00945031 /* HTSMainNavigationController.m */; };
+		60BBED0422D361AF00945031 /* HTSEditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BBED0122D361AF00945031 /* HTSEditProfileViewController.m */; };
 		BF2F20BC0F27325401A68E45 /* Pods_Homework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A720FF794B1F1531FC9C5C6A /* Pods_Homework.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,10 +50,10 @@
 		600BDBB622CF0CEA008D80E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		600BDBB822CF0CEA008D80E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		600BDBB922CF0CEA008D80E7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		60BBECF922D3457100945031 /* HTSEditProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTSEditProfileViewController.h; sourceTree = "<group>"; };
-		60BBECFA22D3457100945031 /* HTSEditProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTSEditProfileViewController.m; sourceTree = "<group>"; };
-		60BBECFC22D346C400945031 /* HTSMainNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTSMainNavigationController.h; sourceTree = "<group>"; };
-		60BBECFD22D346C400945031 /* HTSMainNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTSMainNavigationController.m; sourceTree = "<group>"; };
+		60BBECFF22D361AF00945031 /* HTSMainNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTSMainNavigationController.m; sourceTree = "<group>"; };
+		60BBED0022D361AF00945031 /* HTSMainNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTSMainNavigationController.h; sourceTree = "<group>"; };
+		60BBED0122D361AF00945031 /* HTSEditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTSEditProfileViewController.m; sourceTree = "<group>"; };
+		60BBED0222D361AF00945031 /* HTSEditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTSEditProfileViewController.h; sourceTree = "<group>"; };
 		A720FF794B1F1531FC9C5C6A /* Pods_Homework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Homework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -140,12 +140,12 @@
 		600BDBC222CF0D0F008D80E7 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				60BBED0222D361AF00945031 /* HTSEditProfileViewController.h */,
+				60BBED0122D361AF00945031 /* HTSEditProfileViewController.m */,
+				60BBED0022D361AF00945031 /* HTSMainNavigationController.h */,
+				60BBECFF22D361AF00945031 /* HTSMainNavigationController.m */,
 				6001EC0822D070A200F74656 /* HTSProfileViewController.h */,
 				6001EC0922D070A200F74656 /* HTSProfileViewController.m */,
-				60BBECF922D3457100945031 /* HTSEditProfileViewController.h */,
-				60BBECFA22D3457100945031 /* HTSEditProfileViewController.m */,
-				60BBECFC22D346C400945031 /* HTSMainNavigationController.h */,
-				60BBECFD22D346C400945031 /* HTSMainNavigationController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -292,10 +292,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				60BBECFE22D346C400945031 /* HTSMainNavigationController.m in Sources */,
 				6001EC0D22D070CA00F74656 /* HTSUserModel.m in Sources */,
-				60BBECFB22D3457100945031 /* HTSEditProfileViewController.m in Sources */,
 				6001EC1022D070DC00F74656 /* HTSVideoModel.m in Sources */,
+				60BBED0422D361AF00945031 /* HTSEditProfileViewController.m in Sources */,
+				60BBED0322D361AF00945031 /* HTSMainNavigationController.m in Sources */,
 				6001EC2322D1A34500F74656 /* VideoCollectionViewCell.m in Sources */,
 				6001EC0722D0709000F74656 /* HTSProfileViewModel.m in Sources */,
 				6001EC0A22D070A200F74656 /* HTSProfileViewController.m in Sources */,

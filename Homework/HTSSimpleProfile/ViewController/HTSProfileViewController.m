@@ -19,7 +19,7 @@
 
 @property (strong, nonatomic) NSArray *userVideos;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (weak, nonatomic) IBOutlet UINavigationBar *nickname;
+@property (weak, nonatomic) IBOutlet UINavigationItem *nickname;
 @property (weak, nonatomic) IBOutlet UILabel *followerCount;
 @property (weak, nonatomic) IBOutlet UILabel *followingCount;
 @property (weak, nonatomic) IBOutlet UILabel *fanTicketCount;
@@ -37,6 +37,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     
     // definition
     self.userVideoHeight = 180;
@@ -53,7 +54,7 @@
     NSDictionary *userDictionary;
     userDictionary = [HTSUserModel loadUserJSONFile];
     HTSUserModel *usermodel = [MTLJSONAdapter modelOfClass:[HTSUserModel class] fromJSONDictionary:userDictionary error: &error];
-    self.nickname.topItem.title = usermodel.nickname;
+    self.nickname.title = usermodel.nickname;
     self.followerCount.text = [usermodel.followerCount stringValue];
     self.followingCount.text = [usermodel.followingCount stringValue];
     self.fanTicketCount.text = [usermodel.fanTicketCount stringValue];
