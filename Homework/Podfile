@@ -7,4 +7,5 @@ target 'Homework' do
 
   # Pods for Homework
     pod 'Mantle'
+    pod 'Masonry'
 end

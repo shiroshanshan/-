@@ -18,6 +18,7 @@
              @"fanTicketCount": @"data.fan_ticket_count",
              @"nickname": @"data.nickname",
              @"payGradeBanner": @"data.pay_grade.grade_banner",
+             @"gradeIconUri": @"data.pay_grade.grade_icon_uri",
              @"signature": @"data.signature",
              @"followingCount": @"data.stats.following_count",
              @"followerCount": @"data.stats.follower_count"

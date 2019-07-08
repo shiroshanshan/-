@@ -19,8 +19,15 @@
     return videoDictionary;
 }
 
-- (void)appendVideo:(HTSVideo *)videoToAppend{
-    [_videos addObject:videoToAppend];
++ (NSMutableArray *)convertToVideoModelFromArray:(NSArray *)videoArray{
+    NSError *error = nil;
+    NSMutableArray *modelArray = [[NSMutableArray alloc] init];
+    for (int i = 0; i < videoArray.count; i++){
+        HTSVideo *video = [[HTSVideo alloc] init];
+        video = [MTLJSONAdapter modelOfClass:[HTSVideo class] fromJSONDictionary:[videoArray objectAtIndex:i] error: &error];
+        [modelArray addObject:video];
+    }
+    return modelArray;
 }
 
 @end
@@ -30,7 +37,7 @@
 + (NSDictionary *)JSONKeyPathsByPropertyKey{
     return @{
              @"digCount": @"data.stats.digg_count",
-             @"videoUri": @"video.cover.uri"
+             @"videoUri": @"data.video.cover.uri"
              };
 }
 

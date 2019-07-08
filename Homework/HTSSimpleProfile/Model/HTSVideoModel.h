@@ -20,11 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HTSVideoModel : NSObject
 
-@property (nonatomic, readwrite) NSMutableArray *videos;
-
 + (NSDictionary *)loadVideoJSONFile;
-
-- (void) appendVideo: (HTSVideo *)videoToAppend;
++ (NSMutableArray *) convertToVideoModelFromArray: (NSArray *)videoArray;
 
 @end //HTSVideoModel
 

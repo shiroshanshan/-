@@ -7,10 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import "HTSVideoModel.h"
+@import Masonry;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HTSProfileViewModel : NSObject
+@interface UIView (HTSProfileViewModel)
+
+- (void)fillRowWith:(NSInteger)videonumber SubView:(NSArray *)userVideoSubArray OfHeight:(int)userVideoHeight AndInterval:(int)userVideoInterval;
+- (void)fillViewWith:(NSInteger)containerNumber Containers:(NSArray *)userVideoArray OfHeight:(int)userVideoHeight AndInterval:(int)userVideoInterval;
 
 @end
 

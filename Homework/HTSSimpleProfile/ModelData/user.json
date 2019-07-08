@@ -1,15 +1,15 @@
 {
     "data": {
-        "avatar_jpg_uri": "avatar_jpg_uri",
+        "avatar_jpg_uri": "avatar",
         "birthday_description": "90后",
         "city": "北京",
         "fan_ticket_count": 54,
         "nickname": "你的昵称",
         "pay_grade": {
             "grade_banner": "火山达人",
-            "grade_icon_uri": "avatar_jpg_uri"
+            "grade_icon_uri": "iconVHotsoon"
         },
-        "signature": "在韩国定居十年 带你了解韩国风土人情。",
+        "signature": "喜欢做饭的宝贝关注我😊，只要火山不倒我愿意更新到老，有时间就直播，wx，dw20080604。",
         "stats": {
             "following_count": 21,
             "follower_count": 13

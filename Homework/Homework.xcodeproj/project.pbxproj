@@ -13,8 +13,9 @@
 		6001EC1022D070DC00F74656 /* HTSVideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6001EC0F22D070DC00F74656 /* HTSVideoModel.m */; };
 		6001EC1722D1238700F74656 /* video.json in Resources */ = {isa = PBXBuildFile; fileRef = 6001EC1522D1238700F74656 /* video.json */; };
 		6001EC1822D1238700F74656 /* user.json in Resources */ = {isa = PBXBuildFile; fileRef = 6001EC1622D1238700F74656 /* user.json */; };
+		6001EC2322D1A34500F74656 /* VideoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6001EC2222D1A34500F74656 /* VideoCollectionViewCell.m */; };
+		6001EC2F22D25FA300F74656 /* BorderUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6001EC2E22D25FA300F74656 /* BorderUIButton.m */; };
 		600BDBAC22CF0CE8008D80E7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 600BDBAB22CF0CE8008D80E7 /* AppDelegate.m */; };
-		600BDBAF22CF0CE8008D80E7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 600BDBAE22CF0CE8008D80E7 /* ViewController.m */; };
 		600BDBB222CF0CE8008D80E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 600BDBB022CF0CE8008D80E7 /* Main.storyboard */; };
 		600BDBB422CF0CEA008D80E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 600BDBB322CF0CEA008D80E7 /* Assets.xcassets */; };
 		600BDBB722CF0CEA008D80E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 600BDBB522CF0CEA008D80E7 /* LaunchScreen.storyboard */; };
@@ -35,11 +36,13 @@
 		6001EC0F22D070DC00F74656 /* HTSVideoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTSVideoModel.m; sourceTree = "<group>"; };
 		6001EC1522D1238700F74656 /* video.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = video.json; sourceTree = "<group>"; };
 		6001EC1622D1238700F74656 /* user.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = user.json; sourceTree = "<group>"; };
+		6001EC2122D1A34500F74656 /* VideoCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoCollectionViewCell.h; sourceTree = "<group>"; };
+		6001EC2222D1A34500F74656 /* VideoCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoCollectionViewCell.m; sourceTree = "<group>"; };
+		6001EC2D22D25FA300F74656 /* BorderUIButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BorderUIButton.h; sourceTree = "<group>"; };
+		6001EC2E22D25FA300F74656 /* BorderUIButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BorderUIButton.m; sourceTree = "<group>"; };
 		600BDBA722CF0CE8008D80E7 /* Homework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homework.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		600BDBAA22CF0CE8008D80E7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		600BDBAB22CF0CE8008D80E7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		600BDBAD22CF0CE8008D80E7 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		600BDBAE22CF0CE8008D80E7 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		600BDBB122CF0CE8008D80E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		600BDBB322CF0CEA008D80E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		600BDBB622CF0CEA008D80E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -60,6 +63,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6001EC2022D19CD000F74656 /* ModelData */ = {
+			isa = PBXGroup;
+			children = (
+				6001EC1622D1238700F74656 /* user.json */,
+				6001EC1522D1238700F74656 /* video.json */,
+			);
+			path = ModelData;
+			sourceTree = "<group>";
+		};
 		600BDB9E22CF0CE8008D80E7 = {
 			isa = PBXGroup;
 			children = (
@@ -81,8 +93,7 @@
 		600BDBA922CF0CE8008D80E7 /* HTSSimpleProfile */ = {
 			isa = PBXGroup;
 			children = (
-				6001EC1622D1238700F74656 /* user.json */,
-				6001EC1522D1238700F74656 /* video.json */,
+				6001EC2022D19CD000F74656 /* ModelData */,
 				600BDBC322CF0D18008D80E7 /* ViewModel */,
 				600BDBC222CF0D0F008D80E7 /* ViewController */,
 				600BDBC122CF0CFB008D80E7 /* View */,
@@ -111,9 +122,11 @@
 		600BDBC122CF0CFB008D80E7 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				600BDBAD22CF0CE8008D80E7 /* ViewController.h */,
-				600BDBAE22CF0CE8008D80E7 /* ViewController.m */,
 				600BDBB022CF0CE8008D80E7 /* Main.storyboard */,
+				6001EC2122D1A34500F74656 /* VideoCollectionViewCell.h */,
+				6001EC2222D1A34500F74656 /* VideoCollectionViewCell.m */,
+				6001EC2D22D25FA300F74656 /* BorderUIButton.h */,
+				6001EC2E22D25FA300F74656 /* BorderUIButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -271,9 +284,10 @@
 			files = (
 				6001EC0D22D070CA00F74656 /* HTSUserModel.m in Sources */,
 				6001EC1022D070DC00F74656 /* HTSVideoModel.m in Sources */,
+				6001EC2322D1A34500F74656 /* VideoCollectionViewCell.m in Sources */,
 				6001EC0722D0709000F74656 /* HTSProfileViewModel.m in Sources */,
 				6001EC0A22D070A200F74656 /* HTSProfileViewController.m in Sources */,
-				600BDBAF22CF0CE8008D80E7 /* ViewController.m in Sources */,
+				6001EC2F22D25FA300F74656 /* BorderUIButton.m in Sources */,
 				600BDBBA22CF0CEA008D80E7 /* main.m in Sources */,
 				600BDBAC22CF0CE8008D80E7 /* AppDelegate.m in Sources */,
 			);

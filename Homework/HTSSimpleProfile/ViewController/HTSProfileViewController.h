@@ -6,12 +6,11 @@
 //  Copyright © 2019 fan. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import "HTSVideoModel.h"
+#import "HTSUserModel.h"
+@import Masonry;
 
-NS_ASSUME_NONNULL_BEGIN
-
-@interface HTSProfileViewController : NSObject
+@interface ViewController : UIViewController
 
 @end
-
-NS_ASSUME_NONNULL_END
