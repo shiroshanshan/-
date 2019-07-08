@@ -1,13 +1,13 @@
 {
     "data": {
-        "avatar_jpg_uri": "avatar",
+        "avatar_jpg_uri": "https://github.com/shiroshanshan/IES-Homework/raw/develop/Homework/HTSSimpleProfile/Assets.xcassets/avatar.imageset/avatar.png",
         "birthday_description": "90后",
         "city": "北京",
         "fan_ticket_count": 54,
         "nickname": "你的昵称",
         "pay_grade": {
             "grade_banner": "火山达人",
-            "grade_icon_uri": "iconVHotsoon"
+            "grade_icon_uri": "https://github.com/shiroshanshan/IES-Homework/raw/develop/Homework/HTSSimpleProfile/Assets.xcassets/iconVHotsoon.imageset/iconVHotsoon.png"
         },
         "signature": "喜欢做饭的宝贝关注我😊，只要火山不倒我愿意更新到老，有时间就直播，wx，dw20080604。",
         "stats": {

@@ -9,7 +9,7 @@
 #import "HTSProfileViewController.h"
 #import "HTSProfileViewModel.h"
 
-@interface ViewController ()
+@interface HTSProfileViewController ()
 
 @property (nonatomic) int userVideoHeight;
 @property (nonatomic) int userVideoInterval;
@@ -32,14 +32,14 @@
 
 @end
 
-@implementation ViewController
+@implementation HTSProfileViewController
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     // definition
-    self.userVideoHeight = 200;
+    self.userVideoHeight = 180;
     self.userVideoInterval = 5;
     self.userVideoNumber = 9;
     self.column = 3;
@@ -61,8 +61,12 @@
     self.city.text = usermodel.city;
     self.birthdayDescription.text = usermodel.birthdayDescription;
     self.signature.text = usermodel.signature;
-    self.gradeIconUri.image = [UIImage imageNamed:usermodel.gradeIconUri];
-    self.avatarImage.image = [UIImage imageNamed:usermodel.avatarJpgUri];
+    [self.gradeIconUri sd_setImageWithURL:[NSURL URLWithString:usermodel.gradeIconUri]
+               placeholderImage:[UIImage imageNamed:@"cat.jpg"]];
+    [self.avatarImage sd_setImageWithURL:[NSURL URLWithString:usermodel.avatarJpgUri]
+                         placeholderImage:[UIImage imageNamed:@"cat.jpg"]];
+//    self.gradeIconUri.image = [UIImage imageNamed:usermodel.gradeIconUri];
+//    self.avatarImage.image = [UIImage imageNamed:usermodel.avatarJpgUri];
     self.avatarImage.layer.cornerRadius  = self.avatarImage.frame.size.width/2;
     self.avatarImage.clipsToBounds = YES;
     

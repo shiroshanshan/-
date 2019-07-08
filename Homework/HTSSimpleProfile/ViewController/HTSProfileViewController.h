@@ -11,6 +11,6 @@
 #import "HTSUserModel.h"
 @import Masonry;
 
-@interface ViewController : UIViewController
+@interface HTSProfileViewController : UIViewController
 
 @end

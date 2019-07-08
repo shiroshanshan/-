@@ -25,21 +25,60 @@
     }];
     lastSubView = subView;
     HTSVideo *htsvideo = [userVideoSubArray objectAtIndex:0];
-    subView.image = [UIImage imageNamed:htsvideo.videoUri];
+    [subView sd_setImageWithURL:[NSURL URLWithString:htsvideo.videoUri]
+               placeholderImage:[UIImage imageNamed:@"cat.jpg"]];
+//    subView.image = [UIImage imageNamed:htsvideo.videoUri];
+    UIImageView *digCountImage = [UIImageView new];
+    [subView addSubview:digCountImage];
+    [digCountImage mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.mas_equalTo(subView.mas_bottom).with.offset(-10);
+        make.right.mas_equalTo(subView.mas_right).with.offset(-40);
+        make.size.mas_equalTo(CGSizeMake(20, 20));
+    }];
+    digCountImage.image = [UIImage imageNamed:@"iconProfileLikeTransparent"];
+    UILabel *digCount = [UILabel new];
+    [subView addSubview:digCount];
+    [digCount mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.mas_equalTo(subView.mas_bottom).with.offset(-10);
+        make.left.mas_equalTo(digCountImage.mas_right).with.offset(0);
+    }];
+    digCount.text = [htsvideo.digCount stringValue];
+    digCount.textColor = [UIColor whiteColor];
+    digCount.font = [UIFont fontWithName:@"ArialRoundedMTBold" size:16];
     
     for (int i = 1; i < videoNumber; i++) {
         subView = [UIImageView new];
         [self addSubview:subView];
 //        subView.backgroundColor = [UIColor greenColor];
         [subView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.and.bottom.equalTo(self);
+            make.top.and.bottom.mas_equalTo(self);
             make.height.mas_equalTo(userVideoHeight);
             make.width.mas_equalTo(containerSizeWidth);
             make.left.mas_equalTo(lastSubView.mas_right).with.offset(userVideoInterval);
         }];
         lastSubView = subView;
         HTSVideo *htsvideo = [userVideoSubArray objectAtIndex:i];
-        subView.image = [UIImage imageNamed:htsvideo.videoUri];
+        [subView sd_setImageWithURL:[NSURL URLWithString:htsvideo.videoUri]
+                     placeholderImage:[UIImage imageNamed:@"cat.jpg"]];
+        //load local image
+//        subView.image = [UIImage imageNamed:htsvideo.videoUri];
+        UIImageView *digCountImage = [UIImageView new];
+        [subView addSubview:digCountImage];
+        [digCountImage mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.bottom.mas_equalTo(subView.mas_bottom).with.offset(-10);
+            make.right.mas_equalTo(subView.mas_right).with.offset(-40);
+            make.size.mas_equalTo(CGSizeMake(20, 20));
+        }];
+        digCountImage.image = [UIImage imageNamed:@"iconProfileLikeTransparent"];
+        UILabel *digCount = [UILabel new];
+        [subView addSubview:digCount];
+        [digCount mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.bottom.mas_equalTo(subView.mas_bottom).with.offset(-10);
+            make.left.mas_equalTo(digCountImage.mas_right).with.offset(0);
+        }];
+        digCount.text = [htsvideo.digCount stringValue];
+        digCount.textColor = [UIColor whiteColor];
+        digCount.font = [UIFont fontWithName:@"ArialRoundedMTBold" size:16];
     }
 }
 
