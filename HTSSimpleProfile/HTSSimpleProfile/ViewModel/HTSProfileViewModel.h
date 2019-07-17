@@ -11,6 +11,8 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "HTSUserModel.h"
 #import "HTSVideoModel.h"
+//#import "HTSProfileViewController.h"
+@class HTSProfileViewController;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -29,9 +31,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) HTSUserModel *userModel;
 @property (strong, nonatomic) NSMutableArray *videoModelArray;
 
-- (instancetype) initWithUserModel : (HTSUserModel *)userModel videoModelArray: (NSMutableArray *) videoModelArray;
+- (instancetype) initWithUserModel:(HTSUserModel *)userModel videoModelArray:(NSMutableArray *) videoModelArray;
 - (void)collectionViewCell:(UICollectionViewCell *)cell loadVideoCoverAtIndexPath:(NSIndexPath *)indexPath;
-- (void)loadUserProfileView:(UIView *) userProfileView;
+- (void)loadUserProfileView:(HTSProfileViewController *) userProfileViewController;
 - (void)label:(UILabel *)likeCountLabel loadLikeCountAtIndexPath:(NSIndexPath *)indexPath;
 
 @end

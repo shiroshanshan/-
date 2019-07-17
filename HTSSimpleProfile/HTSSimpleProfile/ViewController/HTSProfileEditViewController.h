@@ -17,10 +17,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong, nonatomic) HTSProfileViewModel *viewModel;
 @property (weak, nonatomic) id <HTSDelegate> delegate;
-@property (nonatomic)NSMutableArray *userProfileArray;
+@property (nonatomic) UIView *superViewUpper;
+@property (nonatomic) UIView *superViewMedium;
+@property (nonatomic) UIView *superViewLower;
+@property (nonatomic) NSMutableArray *userProfileArray;
+@property (nonatomic) UIImageView *userAvatarImageView;
 @property (nonatomic) UITableView *tableView;
+@property (nonatomic) UITextView *userDescriptionTextView;
 @property (nonatomic) UIDatePicker *datePicker;
 @property (nonatomic) UIPickerView *genderPicker;
+@property (nonatomic) CGFloat userProfileEditUpperInset;
+@property (nonatomic) CGFloat viewHeightFloat;
+@property (nonatomic) CGFloat viewWidthFloat;
 
 - (instancetype) initWithViewModel : (HTSProfileViewModel *)viewModel;
 
