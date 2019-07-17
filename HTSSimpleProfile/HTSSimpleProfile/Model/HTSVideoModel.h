@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, readwrite) NSMutableArray *userVideoArray;
 
-+ (NSMutableArray *)constructVideoModelArrayFromJSON:(NSString *)videoJSONString;
++ (NSMutableArray *)constructVideoModelArrayFromLocalJSON:(NSString *)videoJSONString;
 
 @end
 

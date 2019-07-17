@@ -21,7 +21,7 @@
 
 @implementation HTSVideoModelArray : NSObject
 
-+ (NSMutableArray *)constructVideoModelArrayFromJSON: (NSString *)videoJSONString {
++ (NSMutableArray *)constructVideoModelArrayFromLocalJSON: (NSString *)videoJSONString {
     NSError *error = nil;
     NSString *JSONFilePathString = [[NSBundle mainBundle] pathForResource:videoJSONString ofType:@"json"];
     NSString *JSONString = [[NSString alloc] initWithContentsOfFile:JSONFilePathString encoding:NSUTF8StringEncoding error: &error];

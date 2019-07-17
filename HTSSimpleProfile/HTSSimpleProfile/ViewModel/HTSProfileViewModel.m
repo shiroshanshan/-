@@ -25,7 +25,8 @@
     HTSVideoModel *videoModel = [self.videoModelArray objectAtIndex:(int)indexPath.row];
     
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:cell.contentView.bounds];
-    [imageView sd_setImageWithURL:[NSURL URLWithString:videoModel.videoUriString] placeholderImage:[UIImage imageNamed:@"cat"]];
+    imageView.image = [UIImage imageNamed:videoModel.videoUriString];
+//    [imageView sd_setImageWithURL:[NSURL URLWithString:videoModel.videoUriString] placeholderImage:[UIImage imageNamed:@"cat"]];
     [cell.contentView addSubview:imageView];
 }
 
@@ -37,7 +38,8 @@
 
 - (void)loadUserProfileView:(HTSProfileViewController *) userProfileViewController {
     UIImageView *userAvatarImageView = userProfileViewController.userAvatarImageView;
-    [userAvatarImageView sd_setImageWithURL:[NSURL URLWithString:self.userModel.avatarJpgUriString] placeholderImage:[UIImage imageNamed:@"cat"]];
+    userAvatarImageView.image = [UIImage imageNamed:self.userModel.avatarJpgUriString];
+//    [userAvatarImageView sd_setImageWithURL:[NSURL URLWithString:self.userModel.avatarJpgUriString] placeholderImage:[UIImage imageNamed:@"cat"]];
     
     UILabel *fanTicketCountLabel = userProfileViewController.fanTicketCountLabel;
     fanTicketCountLabel.text = [self.userModel.fanTicketCountNumber stringValue];

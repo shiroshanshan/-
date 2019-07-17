@@ -19,10 +19,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    BOOL loadFromInternet = YES;
     
     // create user model and video model array
-    HTSUserModel *userModel = [HTSUserModel constructUserModelFromJSON:@"user"];
-    NSMutableArray *videoModelArray = [HTSVideoModelArray constructVideoModelArrayFromJSON:@"video"];
+    HTSUserModel *userModel = [HTSUserModel constructUserModelFromLocalJSON:@"user_local"];
+    NSMutableArray *videoModelArray = [HTSVideoModelArray constructVideoModelArrayFromLocalJSON:@"video_local"];
     
     // create view model
     HTSProfileViewModel *viewModel = [[HTSProfileViewModel alloc] initWithUserModel:userModel videoModelArray:videoModelArray];

@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @optional
 
 - (void)didLoadLocation:(NSString *)locationString;
-- (void)didSave;
+- (void)didSaveWithAvatar:(UIImage *)avatar;
 
 @end
 

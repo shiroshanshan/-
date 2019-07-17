@@ -19,6 +19,9 @@
 		6098F13722D5810700A11360 /* video.json in Resources */ = {isa = PBXBuildFile; fileRef = 6098F13522D5810600A11360 /* video.json */; };
 		6098F13B22DB799300A11360 /* UIBorderButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6098F13A22DB799300A11360 /* UIBorderButton.m */; };
 		60D456D922DDE5690097C60A /* HTSProfileEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D456D822DDE5690097C60A /* HTSProfileEditViewController.m */; };
+		60E06DD722DF296E0064A28F /* switch.json in Resources */ = {isa = PBXBuildFile; fileRef = 60E06DD622DF296E0064A28F /* switch.json */; };
+		60E06DDD22DF29B00064A28F /* user_local.json in Resources */ = {isa = PBXBuildFile; fileRef = 60E06DDB22DF29B00064A28F /* user_local.json */; };
+		60E06DDE22DF29B00064A28F /* video_local.json in Resources */ = {isa = PBXBuildFile; fileRef = 60E06DDC22DF29B00064A28F /* video_local.json */; };
 		A84A95C0CBC18BB05285FA47 /* Pods_HTSSimpleProfile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36C0E9AE8939A794E7A5842E /* Pods_HTSSimpleProfile.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +49,9 @@
 		6098F13A22DB799300A11360 /* UIBorderButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIBorderButton.m; sourceTree = "<group>"; };
 		60D456D722DDE5690097C60A /* HTSProfileEditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTSProfileEditViewController.h; sourceTree = "<group>"; };
 		60D456D822DDE5690097C60A /* HTSProfileEditViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTSProfileEditViewController.m; sourceTree = "<group>"; };
+		60E06DD622DF296E0064A28F /* switch.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = switch.json; sourceTree = "<group>"; };
+		60E06DDB22DF29B00064A28F /* user_local.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = user_local.json; sourceTree = "<group>"; };
+		60E06DDC22DF29B00064A28F /* video_local.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = video_local.json; sourceTree = "<group>"; };
 		CDC7CBDCA7DB648CEED24BFF /* Pods-HTSSimpleProfile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HTSSimpleProfile.release.xcconfig"; path = "Target Support Files/Pods-HTSSimpleProfile/Pods-HTSSimpleProfile.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,6 +88,8 @@
 		6098F11022D4E21C00A11360 /* HTSSimpleProfile */ = {
 			isa = PBXGroup;
 			children = (
+				60E06DD622DF296E0064A28F /* switch.json */,
+				60E06DDA22DF29B00064A28F /* ProfileDataLocal */,
 				6098F13822D5812600A11360 /* ProfileData */,
 				6098F12D22D4E52D00A11360 /* Model */,
 				6098F12C22D4E51B00A11360 /* View */,
@@ -144,6 +152,15 @@
 				6098F13422D5810600A11360 /* user.json */,
 			);
 			path = ProfileData;
+			sourceTree = "<group>";
+		};
+		60E06DDA22DF29B00064A28F /* ProfileDataLocal */ = {
+			isa = PBXGroup;
+			children = (
+				60E06DDB22DF29B00064A28F /* user_local.json */,
+				60E06DDC22DF29B00064A28F /* video_local.json */,
+			);
+			path = ProfileDataLocal;
 			sourceTree = "<group>";
 		};
 		9E26413F38E934F14D6F9EE9 /* Pods */ = {
@@ -222,10 +239,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60E06DDD22DF29B00064A28F /* user_local.json in Resources */,
 				6098F13622D5810700A11360 /* user.json in Resources */,
 				6098F13722D5810700A11360 /* video.json in Resources */,
 				6098F11E22D4E21E00A11360 /* LaunchScreen.storyboard in Resources */,
 				6098F11B22D4E21E00A11360 /* Assets.xcassets in Resources */,
+				60E06DD722DF296E0064A28F /* switch.json in Resources */,
+				60E06DDE22DF29B00064A28F /* video_local.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

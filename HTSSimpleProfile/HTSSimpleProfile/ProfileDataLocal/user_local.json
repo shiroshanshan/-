@@ -1,0 +1,18 @@
+{
+    "data": {
+        "avatar_jpg_uri": "avatar2",
+        "birthday_description": "90's",
+        "city": "Beijing",
+        "fan_ticket_count": 53,
+        "nickname": "your name",
+        "pay_grade": {
+            "grade_banner": "Hotsoon",
+            "grade_icon_uri": "iconVHotsoon"
+        },
+        "signature": "Follow me if you are interested in cooking😊. I'll keep updating as far as Hotsoon exists, also record live stream when I'm free，wx，dw20080604。",
+        "stats": {
+            "following_count": 21,
+            "follower_count": 30
+        }
+    }
+}

@@ -380,8 +380,9 @@
     }];
 }
 
-- (void)didSave{
+- (void)didSaveWithAvatar:(UIImage *)avatar{
     [self bindViewModel];
+    self.userAvatarImageView.image = avatar;
 }
 
 @end

@@ -25,7 +25,7 @@
              };
 }
 
-+ (HTSUserModel *)constructUserModelFromJSON: (NSString *)userJSONString {
++ (HTSUserModel *)constructUserModelFromLocalJSON: (NSString *)userJSONString {
     NSError *error = nil;
     NSString *JSONFilePathString = [[NSBundle mainBundle] pathForResource:userJSONString ofType:@"json"];
     NSString *JSONString = [[NSString alloc] initWithContentsOfFile:JSONFilePathString encoding:NSUTF8StringEncoding error: &error];

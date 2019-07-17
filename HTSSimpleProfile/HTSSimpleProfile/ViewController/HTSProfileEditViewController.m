@@ -26,6 +26,8 @@
 @synthesize userAvatarImageView;
 @synthesize userDescriptionTextView;
 
+#pragma mark - Lifecycle
+
 - (instancetype) initWithViewModel : (HTSProfileViewModel *)viewModel {
     self = [super init];
     if (!self) return nil;
@@ -34,6 +36,8 @@
     
     return self;
 }
+
+#pragma mark - View Lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -60,8 +64,8 @@
     UITextField *userInformationTextField = [self.view viewWithTag:1];
     self.viewModel.userModel.nicknameString = userInformationTextField.text;
     self.viewModel.userModel.signatureString = userDescriptionTextView.text;
-    if ([self.delegate respondsToSelector:@selector(didSave)]) {
-        [self.delegate didSave];
+    if ([self.delegate respondsToSelector:@selector(didSaveWithAvatar:)]) {
+        [self.delegate didSaveWithAvatar:userAvatarImageView.image];
     }
     [self.navigationController popViewControllerAnimated:YES];
 }
