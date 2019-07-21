@@ -60,6 +60,8 @@
     [self setTextView];
 }
 
+#pragma mark - Save user information
+
 - (void)saveUserProfile {
     UITextField *userInformationTextField = [self.view viewWithTag:1];
     self.viewModel.userModel.nicknameString = userInformationTextField.text;
@@ -70,19 +72,7 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)setSuperView {
-    CGRect rectUpper = CGRectMake(0, userProfileEditUpperInset, viewWidthFloat, viewHeightFloat * 0.3);
-    superViewUpper = [[UIView alloc] initWithFrame:rectUpper];
-    [self.view addSubview:superViewUpper];
-    
-    CGRect rectMedium = CGRectMake(0, userProfileEditUpperInset + viewHeightFloat * 0.3, viewWidthFloat, viewHeightFloat * 0.25);
-    superViewMedium = [[UIView alloc] initWithFrame:rectMedium];
-    [self.view addSubview:superViewMedium];
-    
-    CGRect rectLower = CGRectMake(0, userProfileEditUpperInset + 0.55 * viewHeightFloat, viewWidthFloat, 0.45 * viewHeightFloat - userProfileEditUpperInset);
-    superViewLower = [[UIView alloc] initWithFrame:rectLower];
-    [self.view addSubview:superViewLower];
-}
+#pragma mark - Set UI elements
 
 - (void)setAvatar {
     int userAvatarSize = 120;
@@ -99,7 +89,7 @@
     userAvatarImageView.layer.cornerRadius = userAvatarSize / 2;
     userAvatarImageView.clipsToBounds = YES;
     userAvatarImageView.image = [UIImage imageNamed:@"avatar"];
-
+    
     UIButton *userAvatarChangeButton = [[UIButton alloc] init];
     [userAvatarChangeButton setTitle:@"点击更换头像" forState:UIControlStateNormal];
     [userAvatarChangeButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
@@ -112,12 +102,23 @@
     [userAvatarChangeButton addTarget:self action:@selector(userAvatarChange) forControlEvents:UIControlEventTouchUpInside];
 }
 
-- (void)userAvatarChange {
-    UIImagePickerController *pickerLibrary = [[UIImagePickerController alloc] init];
-    pickerLibrary.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    pickerLibrary.delegate = self;
-    [self presentModalViewController:pickerLibrary animated:YES];
+#pragma mark - Set super view
+
+- (void)setSuperView {
+    CGRect rectUpper = CGRectMake(0, userProfileEditUpperInset, viewWidthFloat, viewHeightFloat * 0.3);
+    superViewUpper = [[UIView alloc] initWithFrame:rectUpper];
+    [self.view addSubview:superViewUpper];
+    
+    CGRect rectMedium = CGRectMake(0, userProfileEditUpperInset + viewHeightFloat * 0.3, viewWidthFloat, viewHeightFloat * 0.25);
+    superViewMedium = [[UIView alloc] initWithFrame:rectMedium];
+    [self.view addSubview:superViewMedium];
+    
+    CGRect rectLower = CGRectMake(0, userProfileEditUpperInset + 0.55 * viewHeightFloat, viewWidthFloat, 0.45 * viewHeightFloat - userProfileEditUpperInset);
+    superViewLower = [[UIView alloc] initWithFrame:rectLower];
+    [self.view addSubview:superViewLower];
 }
+
+#pragma mark - Set table view
 
 - (void)setTableView {
     self.tableView = [[UITableView alloc] init];
@@ -215,6 +216,21 @@
     return cell;
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return userProfileArray.count;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return viewHeightFloat * 0.25 / 4;
+}
+
+#pragma mark - Set copy button
+
 - (void)setCopyButtonForCell:(UITableViewCell *)cell {
     int copyButtonRightInset = 10;
     int copyButtonWidth = 80;
@@ -234,12 +250,18 @@
     }];
     [copyButton addTarget:self action:@selector(copyUserId) forControlEvents:UIControlEventTouchUpInside];
 }
-         
-- (void)copyUserId {
-    UITextField *userIdTextField = [self.view viewWithTag:2];
-    UIPasteboard *pb = [UIPasteboard generalPasteboard];
-    [pb setValue:userIdTextField.text forPasteboardType:@"public.utf8-plain-text"];
+
+#pragma mark - Set date
+
+- (void)showSelectedDate {
+    UITextField *userInformationTextField = [self.view viewWithTag:4];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"YYYY-MM-dd"];
+    userInformationTextField.text = [NSString stringWithFormat:@"%@", [formatter stringFromDate:datePicker.date]];
+    [userInformationTextField resignFirstResponder];
 }
+
+#pragma mark - Set user gender
 
 - (void)showSelectedGender {
     UITextField *userInformationTextField = [self.view viewWithTag:3];
@@ -253,41 +275,6 @@
         }
     }
     [userInformationTextField resignFirstResponder];
-}
-
-- (void)showSelectedDate {
-    UITextField *userInformationTextField = [self.view viewWithTag:4];
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"YYYY-MM-dd"];
-    userInformationTextField.text = [NSString stringWithFormat:@"%@", [formatter stringFromDate:datePicker.date]];
-    [userInformationTextField resignFirstResponder];
-}
-    
-- (void)setTextView {
-    userDescriptionTextView = [[UITextView alloc] init];
-    userDescriptionTextView.clipsToBounds = YES;
-    userDescriptionTextView.textContainerInset = UIEdgeInsetsMake(30, 20, 30, 20);
-    [superViewLower addSubview:userDescriptionTextView];
-    [userDescriptionTextView mas_makeConstraints:^(MASConstraintMaker *make){
-        make.size.mas_equalTo(self->superViewLower).sizeOffset(CGSizeMake(0, -100));
-        make.centerX.mas_equalTo(self->superViewLower);
-        make.top.mas_equalTo(self->superViewLower.mas_top).with.inset(40);
-    }];
-    userDescriptionTextView.text = @"恭喜你发现了一只研发小哥哥!";
-    userDescriptionTextView.font = [UIFont systemFontOfSize:18];
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return userProfileArray.count;
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return viewHeightFloat * 0.25 / 4;
 }
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
@@ -309,16 +296,37 @@
     }
 }
 
-- (void)delTableLists:(NSIndexPath *)indexPath {
+#pragma mark - Set text view
     
+- (void)setTextView {
+    userDescriptionTextView = [[UITextView alloc] init];
+    userDescriptionTextView.clipsToBounds = YES;
+    userDescriptionTextView.textContainerInset = UIEdgeInsetsMake(30, 20, 30, 20);
+    [superViewLower addSubview:userDescriptionTextView];
+    [userDescriptionTextView mas_makeConstraints:^(MASConstraintMaker *make){
+        make.size.mas_equalTo(self->superViewLower).sizeOffset(CGSizeMake(0, -100));
+        make.centerX.mas_equalTo(self->superViewLower);
+        make.top.mas_equalTo(self->superViewLower.mas_top).with.inset(40);
+    }];
+    userDescriptionTextView.text = @"恭喜你发现了一只研发小哥哥!";
+    userDescriptionTextView.font = [UIFont systemFontOfSize:18];
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+#pragma mark - Copy user ID
+
+- (void)copyUserId {
+    UITextField *userIdTextField = [self.view viewWithTag:2];
+    UIPasteboard *pb = [UIPasteboard generalPasteboard];
+    [pb setValue:userIdTextField.text forPasteboardType:@"public.utf8-plain-text"];
 }
 
-- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
-    
+#pragma mark - Load photo from library
+
+- (void)userAvatarChange {
+    UIImagePickerController *pickerLibrary = [[UIImagePickerController alloc] init];
+    pickerLibrary.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    pickerLibrary.delegate = self;
+    [self presentModalViewController:pickerLibrary animated:YES];
 }
 
 @end

@@ -11,59 +11,141 @@
 
 @implementation HTSProfileViewModel
 
-- (instancetype) initWithUserModel : (HTSUserModel *)userModel videoModelArray:(NSMutableArray *)videoModelArray{
+@synthesize loadThroughInternet;
+@synthesize userModel;
+@synthesize videoModelArray;
+
+#pragma mark - Lifecycle
+
+- (instancetype) initWithModels:(NSDictionary *)modelsDictionary throughInternet:(BOOL)InternetSwitch {
     self = [super init];
     if (!self) return nil;
     
-    self.userModel = userModel;
-    self.videoModelArray = videoModelArray;
+    loadThroughInternet = InternetSwitch;
+    
+    if (!loadThroughInternet) {
+        userModel = [self constructUserModelFromLocalJSON:[[NSBundle mainBundle] pathForResource:modelsDictionary[@"localUserModelString"] ofType:@"json"]];
+        videoModelArray = [self constructVideoModelArrayFromLocalJSON:[[NSBundle mainBundle] pathForResource:modelsDictionary[@"localVideoModelString"] ofType:@"json"]];
+    } else {
+        NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+        AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+
+        NSURL *URL = [NSURL URLWithString:modelsDictionary[@"remoteUserModelString"]];
+        NSURLRequest *request = [NSURLRequest requestWithURL:URL];
+
+        NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:nil destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
+            NSURL *documentsDirectoryURL = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
+            return [documentsDirectoryURL URLByAppendingPathComponent:[response suggestedFilename]];
+        } completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
+            NSLog(@"File downloaded to: %@", filePath);
+            self->userModel = [self constructUserModelFromLocalJSON:[filePath path]];
+            if ([self.delegate respondsToSelector:@selector(bindViewModel)]) {
+                [self.delegate bindViewModel];
+            }
+        }];
+        [downloadTask resume];
+        
+        URL = [NSURL URLWithString:modelsDictionary[@"remoteVideoModelString"]];
+        request = [NSURLRequest requestWithURL:URL];
+        
+        downloadTask = [manager downloadTaskWithRequest:request progress:nil destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
+            NSURL *documentsDirectoryURL = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
+            return [documentsDirectoryURL URLByAppendingPathComponent:[response suggestedFilename]];
+        } completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
+            NSLog(@"File downloaded to: %@", filePath);
+            self->videoModelArray = [self constructVideoModelArrayFromLocalJSON:[filePath path]];
+            if ([self.delegate respondsToSelector:@selector(setCollectionView)]) {
+                [self.delegate setCollectionView];
+            }
+        }];
+        [downloadTask resume];
+    }
     
     return self;
 }
 
+#pragma mark - Load user model json
+
+- (HTSUserModel *)constructUserModelFromLocalJSON: (NSString *)userJSONFilePathString {
+    NSError *error = nil;
+    NSString *JSONString = [[NSString alloc] initWithContentsOfFile:userJSONFilePathString encoding:NSUTF8StringEncoding error: &error];
+    NSData *JSONData = [JSONString dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary *userModelDictionary = (NSDictionary*) [NSJSONSerialization JSONObjectWithData:JSONData options:NSJSONReadingMutableContainers error:&error];
+    HTSUserModel *userModel = [MTLJSONAdapter modelOfClass:[HTSUserModel class] fromJSONDictionary:userModelDictionary error: &error];
+    
+    return userModel;
+}
+
+#pragma mark - load video model json
+
+- (NSMutableArray *)constructVideoModelArrayFromLocalJSON: (NSString *)videoJSONFilePathString {
+    NSError *error = nil;
+    NSString *JSONString = [[NSString alloc] initWithContentsOfFile:videoJSONFilePathString encoding:NSUTF8StringEncoding error: &error];
+    NSData *JSONData = [JSONString dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary *videoDictionary = (NSDictionary *)[NSJSONSerialization JSONObjectWithData:JSONData options:NSJSONReadingMutableContainers error:&error];
+    NSArray *videoArray = [videoDictionary objectForKey:@"data"];
+    NSMutableArray *videoModelArray = [[NSMutableArray alloc] init];
+    for (int i = 0; i < videoArray.count; i++){
+        HTSVideoModel *videoModel = [[HTSVideoModel alloc] init];
+        videoModel = [MTLJSONAdapter modelOfClass:[HTSVideoModel class] fromJSONDictionary:[videoArray objectAtIndex:i] error:&error];
+        [videoModelArray addObject:videoModel];
+    }
+    return videoModelArray;
+}
+
+#pragma mark - Collection view cell
+
 - (void)collectionViewCell:(UICollectionViewCell *)cell loadVideoCoverAtIndexPath:(NSIndexPath *)indexPath {
-    HTSVideoModel *videoModel = [self.videoModelArray objectAtIndex:(int)indexPath.row];
+    HTSVideoModel *videoModel = [videoModelArray objectAtIndex:(int)indexPath.row];
     
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:cell.contentView.bounds];
-    imageView.image = [UIImage imageNamed:videoModel.videoUriString];
-//    [imageView sd_setImageWithURL:[NSURL URLWithString:videoModel.videoUriString] placeholderImage:[UIImage imageNamed:@"cat"]];
+    if (!loadThroughInternet) {
+        imageView.image = [UIImage imageNamed:videoModel.videoUriString];
+    } else {
+        [imageView sd_setImageWithURL:[NSURL URLWithString:videoModel.videoUriString] placeholderImage:[UIImage imageNamed:@"cat"]];
+    }
     [cell.contentView addSubview:imageView];
 }
 
 - (void)label:(UILabel *)likeCountLabel loadLikeCountAtIndexPath:(NSIndexPath *)indexPath {
-    HTSVideoModel *videoModel = [self.videoModelArray objectAtIndex:(int)indexPath.row];
+    HTSVideoModel *videoModel = [videoModelArray objectAtIndex:(int)indexPath.row];
     
     likeCountLabel.text = [videoModel.digCountNumber stringValue];
 }
 
+#pragma mark - Update view controller
+
 - (void)loadUserProfileView:(HTSProfileViewController *) userProfileViewController {
     UIImageView *userAvatarImageView = userProfileViewController.userAvatarImageView;
-    userAvatarImageView.image = [UIImage imageNamed:self.userModel.avatarJpgUriString];
-//    [userAvatarImageView sd_setImageWithURL:[NSURL URLWithString:self.userModel.avatarJpgUriString] placeholderImage:[UIImage imageNamed:@"cat"]];
+    if (!loadThroughInternet) {
+        userAvatarImageView.image = [UIImage imageNamed:userModel.avatarJpgUriString];
+    } else {
+        [userAvatarImageView sd_setImageWithURL:[NSURL URLWithString:userModel.avatarJpgUriString] placeholderImage:[UIImage imageNamed:@"cat"]];
+    }
     
     UILabel *fanTicketCountLabel = userProfileViewController.fanTicketCountLabel;
-    fanTicketCountLabel.text = [self.userModel.fanTicketCountNumber stringValue];
+    fanTicketCountLabel.text = [userModel.fanTicketCountNumber stringValue];
     
     UILabel *followingCountLabel = userProfileViewController.followingCountLabel;
-    followingCountLabel.text = [self.userModel.followingCountNumber stringValue];
+    followingCountLabel.text = [userModel.followingCountNumber stringValue];
     
     UILabel *followerCountLabel = userProfileViewController.followerCountLabel;
-    followerCountLabel.text = [self.userModel.followerCountNumber stringValue];
+    followerCountLabel.text = [userModel.followerCountNumber stringValue];
     
     UILabel *badgeLabel = userProfileViewController.badgeLabel;
-    badgeLabel.text = self.userModel.payGradeBannerString;
+    badgeLabel.text = userModel.payGradeBannerString;
 
     if ([self.delegate respondsToSelector:@selector(didLoadLocation:)]) {
-        [self.delegate didLoadLocation:self.userModel.cityString];
+        [self.delegate didLoadLocation:userModel.cityString];
     } else {
-        NSLog(@"%@", self.userModel.cityString);
+        NSLog(@"%@", userModel.cityString);
     }
 
     UILabel *ageLabel = userProfileViewController.ageLabel;
-    ageLabel.text = self.userModel.birthdayDescriptionString;
+    ageLabel.text = userModel.birthdayDescriptionString;
     
     UITextView *signatureLabel = userProfileViewController.signatureTextView;
-    signatureLabel.text = self.userModel.signatureString;
+    signatureLabel.text = userModel.signatureString;
 }
 
 @end

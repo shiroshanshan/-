@@ -19,14 +19,18 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    BOOL loadFromInternet = YES;
     
-    // create user model and video model array
-    HTSUserModel *userModel = [HTSUserModel constructUserModelFromLocalJSON:@"user_local"];
-    NSMutableArray *videoModelArray = [HTSVideoModelArray constructVideoModelArrayFromLocalJSON:@"video_local"];
+    BOOL InternetSwitch = NO;
+    
+    NSDictionary *modelsDictionary = @{
+                                      @"localUserModelString": @"user_local",
+                                      @"localVideoModelString": @"video_local",
+                                      @"remoteUserModelString": @"https://github.com/shiroshanshan/IES-Homework/raw/develop/HTSSimpleProfile/HTSSimpleProfile/ProfileData/user.json",
+                                      @"remoteVideoModelString": @"https://github.com/shiroshanshan/IES-Homework/raw/develop/HTSSimpleProfile/HTSSimpleProfile/ProfileData/video.json",
+                                      };
     
     // create view model
-    HTSProfileViewModel *viewModel = [[HTSProfileViewModel alloc] initWithUserModel:userModel videoModelArray:videoModelArray];
+    HTSProfileViewModel *viewModel = [[HTSProfileViewModel alloc] initWithModels:modelsDictionary throughInternet:InternetSwitch];
     
     // create view controller
     HTSProfileViewController *profileViewController = [[HTSProfileViewController alloc] initWithViewModel:viewModel];

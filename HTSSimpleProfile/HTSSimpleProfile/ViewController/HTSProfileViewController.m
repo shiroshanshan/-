@@ -91,6 +91,8 @@
     [self.navigationController pushViewController:profileEditViewController animated:YES];
 }
 
+#pragma mark - Set super view
+
 - (void)setSuperView {
     CGRect rect = CGRectMake(0, userProfileUpperInset, viewWidthFloat, viewHeightFloat * 0.15);
     userProfileViewUpper = [[UIView alloc] initWithFrame:rect];
@@ -99,6 +101,8 @@
     userProfileViewLower = [[UIView alloc] initWithFrame:rect];
     [self.view addSubview:userProfileViewLower];
 }
+
+#pragma mark - Set avatar
 
 - (void)setAvatar {
     CGRect rect = CGRectMake(0, userProfileViewUpper.frame.origin.y, userProfileViewUpper.frame.size.height, userProfileViewUpper.frame.size.height);
@@ -114,6 +118,8 @@
     userAvatarImageView.clipsToBounds = YES;
 }
 
+#pragma mark - Set labels
+
 - (void)setLabel {
     int labelTopInsetInt = 20;
     int labelDescriptionTopInsetInt = 5;
@@ -128,7 +134,6 @@
     UILabel *fanTicketCountDescriptionLabel = [[UILabel alloc] init];
     [superView addSubview:fanTicketCountDescriptionLabel];
     [superView addSubview:fanTicketCountLabel];
-    fanTicketCountLabel.text = @"77777";
     fanTicketCountDescriptionLabel.text = @"火力";
     fanTicketCountLabel.font = userProfileCountLabelFont;
     fanTicketCountDescriptionLabel.textColor = userProfileDescriptionLabelColor;
@@ -146,7 +151,6 @@
     UILabel *followingCountDescriptionLabel = [[UILabel alloc] init];
     [superView addSubview:followingCountDescriptionLabel];
     [superView addSubview:followingCountLabel];
-    followingCountLabel.text = @"88888";
     followingCountDescriptionLabel.text = @"关注";
     followingCountLabel.font = userProfileCountLabelFont;
     followingCountDescriptionLabel.textColor = userProfileDescriptionLabelColor;
@@ -164,7 +168,6 @@
     UILabel *followerCountDescriptionLabel = [[UILabel alloc] init];
     [superView addSubview:followerCountDescriptionLabel];
     [superView addSubview:followerCountLabel];
-    followerCountLabel.text = @"99999";
     followerCountDescriptionLabel.text = @"粉丝";
     followerCountLabel.font = userProfileCountLabelFont;
     followerCountDescriptionLabel.textColor = userProfileDescriptionLabelColor;
@@ -179,6 +182,8 @@
     }];
 
 }
+
+#pragma mark - Set edit button
 
 - (void)setButton {
     UIColor *buttonColor = [UIColor redColor];
@@ -201,8 +206,10 @@
     [editButton addTarget:self action:@selector(editUserProfile) forControlEvents:UIControlEventTouchUpInside];
 }
 
+#pragma mark - Set badge and information
+
 - (void)setBadge {
-    int iconSizeInt = 22;
+    int iconSizeInt = 20;
     int iconLeftInsetInt = 20;
     int iconUpInsetInt = 4;
     UIFont *badgeLabelFont = [UIFont systemFontOfSize:18];
@@ -219,7 +226,6 @@
     badgeImageView.image = [UIImage imageNamed:@"iconVHotsoon"];
     
     badgeLabel = [[UILabel alloc] init];
-    badgeLabel.text = @"badge description";
     badgeLabel.font = badgeLabelFont;
     [superView addSubview:badgeLabel];
     [badgeLabel mas_makeConstraints:^(MASConstraintMaker *make){
@@ -229,7 +235,7 @@
 }
 
 - (void)setLocation {
-    int iconSizeInt = 22;
+    int iconSizeInt = 20;
     int iconLeftInsetInt = 20;
     int iconUpInsetInt = 4;
     int locationLabelLeftInsetInt = 3;
@@ -248,7 +254,6 @@
     locationImageView.image = [UIImage imageNamed:@"iconLocation"];
 
     locationLabel = [[UILabel alloc] init];
-    locationLabel.text = @"location";
     locationLabel.font = locationLabelFont;
     [superView addSubview:locationLabel];
     [locationLabel mas_makeConstraints:^(MASConstraintMaker *make){
@@ -257,7 +262,6 @@
     }];
     
     ageLabel = [[UILabel alloc] init];
-    ageLabel.text = @"age description";
     ageLabel.font = locationLabelFont;
     [superView addSubview:ageLabel];
     [ageLabel mas_makeConstraints:^(MASConstraintMaker *make){
@@ -265,6 +269,8 @@
         make.left.mas_equalTo(self->locationLabel.mas_right).with.inset(ageLabelLeftInsetInt);
     }];
 }
+
+#pragma mark - Set description
 
 - (void)setDescriptionTextView {
     int signatureHeightOffSetInt = -10;
@@ -281,10 +287,11 @@
         make.top.mas_equalTo(superView.mas_top);
         make.centerX.mas_equalTo(superView);
     }];
-    signatureTextView.text = @"To be edited. To be edited. To be edited. To be edited. To be edited. To be edited. ";
     signatureTextView.textColor = signatureColor;
     signatureTextView.font = signatureFont;
 }
+
+#pragma mark - Set collection view
 
 - (void)setCollectionView {
     CGFloat collectionViewHeightFloat = 0.71 * (viewHeightFloat - userProfileUpperInset);
@@ -372,6 +379,8 @@
     likeCountLabel.textColor = likeCountColor;
 }
 
+#pragma mark - Adjust location description
+
 - (void)didLoadLocation:(NSString *)locationString {
     locationLabel.text = locationString;
     
@@ -379,6 +388,8 @@
         make.left.mas_equalTo(self->locationLabel.mas_right).with.inset(15);
     }];
 }
+
+#pragma mark - Save user information
 
 - (void)didSaveWithAvatar:(UIImage *)avatar{
     [self bindViewModel];

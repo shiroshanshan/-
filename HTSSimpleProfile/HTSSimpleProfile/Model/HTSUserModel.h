@@ -23,8 +23,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readwrite) NSNumber *followingCountNumber;
 @property (nonatomic, readwrite) NSNumber *followerCountNumber;
 
-+ (HTSUserModel *)constructUserModelFromLocalJSON:(NSString *)userJSONString;
-
 @end
 
 NS_ASSUME_NONNULL_END

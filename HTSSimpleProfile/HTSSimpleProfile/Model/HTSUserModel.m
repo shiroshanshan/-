@@ -25,15 +25,4 @@
              };
 }
 
-+ (HTSUserModel *)constructUserModelFromLocalJSON: (NSString *)userJSONString {
-    NSError *error = nil;
-    NSString *JSONFilePathString = [[NSBundle mainBundle] pathForResource:userJSONString ofType:@"json"];
-    NSString *JSONString = [[NSString alloc] initWithContentsOfFile:JSONFilePathString encoding:NSUTF8StringEncoding error: &error];
-    NSData *JSONData = [JSONString dataUsingEncoding:NSUTF8StringEncoding];
-    NSDictionary *userModelDictionary = (NSDictionary*) [NSJSONSerialization JSONObjectWithData:JSONData options:NSJSONReadingMutableContainers error:&error];
-    HTSUserModel *userModel = [MTLJSONAdapter modelOfClass:[HTSUserModel class] fromJSONDictionary:userModelDictionary error: &error];
-    
-    return userModel;
-}
-
 @end

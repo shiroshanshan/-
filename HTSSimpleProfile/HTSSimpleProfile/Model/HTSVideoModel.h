@@ -17,12 +17,4 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface HTSVideoModelArray : NSObject
-
-@property (nonatomic, readwrite) NSMutableArray *userVideoArray;
-
-+ (NSMutableArray *)constructVideoModelArrayFromLocalJSON:(NSString *)videoJSONString;
-
-@end
-
 NS_ASSUME_NONNULL_END
